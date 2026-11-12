@@ -1,4 +1,4 @@
-# Artify — Neural Style Transfer with VGG19
+# Artify: Neural Style Transfer with VGG19
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 ![Python](https://img.shields.io/badge/Python-3.7-3776AB?style=flat-square&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-**PyTorch implementation of Neural Style Transfer (Gatys et al., CVPR 2016) — apply the style of any painting to any photograph, via a Streamlit web app or command-line script.**
+**PyTorch implementation of Neural Style Transfer (Gatys et al., CVPR 2016); apply the style of any painting to any photograph, via a Streamlit web app or command-line script.**
 
 </div>
 
@@ -46,7 +46,7 @@ L_content = MSE(F_generated[conv4_2], F_content[conv4_2])
 
 ### Style loss — Gram matrices
 
-Style is captured via **Gram matrices** — inner products between feature channel vectors that encode correlations between features, independent of their spatial location:
+Style is captured via **Gram matrices**: inner products between feature channel vectors that encode correlations between features, independent of their spatial location:
 
 ```
 G[l] = F[l] · F[l]ᵀ   (c × c matrix, where c = number of channels at layer l)
@@ -72,7 +72,7 @@ All three weights are configurable at runtime.
 
 ### Optimiser — L-BFGS
 
-The **image itself** is the optimised variable (not any network weights). The optimiser is **L-BFGS** with strong Wolfe line search — recommended by Gatys et al. as it converges faster than Adam for this type of pixel-space optimisation problem.
+The **image itself** is the optimised variable (not any network weights). The optimiser is **L-BFGS** with strong Wolfe line search, recommended by Gatys et al. as it converges faster than Adam for this type of pixel-space optimisation problem.
 
 The generated image is initialised as Gaussian noise scaled to the content image size (max 512px).
 
@@ -97,7 +97,7 @@ artify/
 
 ```bash
 # Clone the repo
-git clone https://github.com/thiernodaoudaly/artify.git
+git clone https://github.com/tchernodawda/artify.git
 cd artify
 
 # Create and activate the Conda environment
@@ -107,7 +107,7 @@ conda activate nst-env
 
 ## Usage
 
-### Option A — Streamlit app
+### Option A: Streamlit app
 
 ```bash
 streamlit run app.py
@@ -116,7 +116,7 @@ streamlit run app.py
 
 Upload your own content and style images, adjust the loss weights (λ_content, λ_style, λ_tv) and number of iterations from the sidebar, and watch the image evolve in real time.
 
-### Option B — Command line
+### Option B: Command line
 
 ```bash
 python main.py \
@@ -149,8 +149,8 @@ python main.py \
 
 ## Reference
 
-Gatys, L.A., Ecker, A.S., Bethge, M. — *Image Style Transfer Using Convolutional Neural Networks* — CVPR 2016 · [PDF](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf)
+Gatys, L.A., Ecker, A.S., Bethge, M. *Image Style Transfer Using Convolutional Neural Networks* — CVPR 2016 · [PDF](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf)
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE) for details.
